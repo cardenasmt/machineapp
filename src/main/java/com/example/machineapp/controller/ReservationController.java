@@ -48,7 +48,7 @@ public class ReservationController {
     public ReservationReport getResevationStatusReport(){
         return reservationService.getReservationStatusReport();
     }
-    @GetMapping("/report-date/{deteOne}/{dateTwo}")
+    @GetMapping("/report-date/{dateOne}/{dateTwo}")
     public List<Reservation> getReservationsReportDates(@PathVariable("dateOne") String dateOne, @PathVariable ("dateTwo")String datetwo){
         return reservationService.getReservationPeriod(dateOne,datetwo);
     }
