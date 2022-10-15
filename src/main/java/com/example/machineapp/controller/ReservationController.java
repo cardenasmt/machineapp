@@ -1,6 +1,8 @@
 package com.example.machineapp.controller;
 
+import com.example.machineapp.model.ClientReport;
 import com.example.machineapp.model.Reservation;
+import com.example.machineapp.model.ReservationReport;
 import com.example.machineapp.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,4 +44,17 @@ public class ReservationController {
         return reservationService.deleteReservation(id);
     }
 
+    @GetMapping("/report-status")
+    public ReservationReport getResevationStatusReport(){
+        return reservationService.getReservationStatusReport();
+    }
+    @GetMapping("/report-date/{deteOne}/{dateTwo}")
+    public List<Reservation> getReservationsReportDates(@PathVariable("dateOne") String dateOne, @PathVariable ("dateTwo")String datetwo){
+        return reservationService.getReservationPeriod(dateOne,datetwo);
+    }
+
+    @GetMapping("/report-clients")
+    public List<ClientReport> getReportClients(){
+        return reservationService.getTopClients();
+    }
 }
