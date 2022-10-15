@@ -45,7 +45,7 @@ public class ReservationController {
     }
 
     @GetMapping("/report-status")
-    public ReservationReport getResevationStatusReport(){
+    public ReservationReport getReservationStatusReport(){
         return reservationService.getReservationStatusReport();
     }
     @GetMapping("/report-date/{dateOne}/{dateTwo}")
